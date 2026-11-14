@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171715">
+  <meta name="description" content="Read the Bible, find every verse containing a word, and explore Scripture in multiple languages.">
+  <title>Sacred Pages — Read & Explore Scripture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sacred Pages home"><span class="brand-mark">†</span><span>Sacred Pages</span></a>
+    <nav class="desktop-links" aria-label="Main navigation">
+      <a href="#search">Search Scripture</a>
+      <a href="#library">Bible Books</a>
+      <a href="#daily-verse">Daily Verse</a>
+    </nav>
+    <div class="account-area">
+      <span class="guest-pill" id="account-badge">Guest · English</span>
+      <button class="outline-button" id="account-button" type="button">Sign in</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="phone-column" aria-hidden="true">
+          <div class="phone-glow"></div>
+          <div class="phone"><div class="phone-screen">
+            <div class="phone-status"><span>9:41</span><span>● ● ▰</span></div>
+            <div class="phone-book-head"><div><small>NEW TESTAMENT</small><strong>JOHN</strong></div><span>3</span></div>
+            <div class="phone-arrows"><span>←</span><span>→</span></div>
+            <div class="phone-verses">
+              <p><b>14</b><span>And as Moses lifted up the serpent in the wilderness, even so must the Son of man be lifted up:</span></p>
+              <p><b>15</b><span>That whosoever believeth in him should not perish, but have eternal life.</span></p>
+              <p><b>16</b><span>For God so <em>loved</em> the world, that he gave his only begotten Son...</span></p>
+              <p><b>17</b><span>For God sent not his Son into the world to condemn the world...</span></p>
+              <p><b>18</b><span>He that believeth on him is not condemned...</span></p>
+            </div>
+            <div class="phone-toolbar"><span>＋</span><span>⌕</span><span>▤</span><span>▣</span><span>♙</span></div>
+            <div class="phone-home"></div>
+          </div></div>
+        </div>
+        <div class="hero-copy">
+          <span class="eyebrow">YOUR SPACE FOR SCRIPTURE</span>
+          <h1>Discover the words that matter.</h1>
+          <p class="hero-description">Read, search, and explore the Bible in a peaceful space. Find every verse containing a word, see where it appears, and continue reading in context.</p>
+          <a class="primary-button hero-cta" href="#search">Explore Scripture <span aria-hidden="true">→</span></a>
+          <p class="hero-note">Free to read. No account required.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="daily-verse">
+      <div class="section-heading"><div><span class="eyebrow">A MOMENT IN THE WORD</span><h2>Verse of the Day</h2></div><span id="date-label" class="today-label"></span></div>
+      <article class="daily-card">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <blockquote id="daily-text">Loading today’s verse…</blockquote>
+        <div class="daily-footer"><span id="daily-reference">Sacred Pages</span><button type="button" class="text-link" id="daily-read">Read in context →</button></div>
+      </article>
+    </section>
+
+    <section class="content-section search-section" id="search">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE SCRIPTURE</span><h2>Find a word or passage</h2><p class="section-description">Search the whole Bible for a word like <strong>love</strong>, or jump to a reference like <strong>John 3:16</strong>.</p></div></div>
+      <form id="scripture-form" class="reference-search" autocomplete="off">
+        <span class="search-symbol" aria-hidden="true">⌕</span>
+        <input type="search" id="scripture-input" placeholder="Try “love”, “faith”, or “John 3:16”" aria-label="Search Scripture" required maxlength="120">
+        <button type="submit" id="search-button">Search Scripture <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="search-controls">
+        <label for="translation-select">Bible translation
+          <select id="translation-select" aria-label="Bible translation"></select>
+        </label>
+        <label for="scope-select">Search in
+          <select id="scope-select"><option value="bible">Entire Bible</option><option value="old_testament">Old Testament</option><option value="new_testament">New Testament</option></select>
+        </label>
+        <button type="button" id="language-lock" class="language-lock" title="Sign in with Google to select other languages">🔒 More languages with Google sign-in</button>
+      </div>
+      <div class="quick-search"><span>Popular searches</span><button type="button" data-search="love">Love</button><button type="button" data-search="faith">Faith</button><button type="button" data-search="hope">Hope</button><button type="button" data-search="peace">Peace</button><button type="button" data-search="John 3:16">John 3:16</button></div>
+
+      <section id="results" class="results-section" hidden aria-label="Search results">
+        <div class="results-head"><div><span class="eyebrow" id="results-eyebrow">WORD SEARCH</span><h3 id="results-title"></h3><p id="results-subtitle" class="section-description"></p></div><span class="results-count" id="results-count"></span></div>
+        <p id="results-error" class="error-message" role="alert" hidden></p>
+        <div id="results-list" class="results-list"></div>
+        <div class="results-footer"><span id="results-progress"></span><div class="result-actions"><button type="button" class="secondary-button" id="load-more" hidden>Load more verses</button><button type="button" class="primary-button" id="load-all" hidden>Show all verses</button></div></div>
+      </section>
+    </section>
+
+    <section class="content-section library-section" id="library">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE THE SCRIPTURES</span><h2>Books of the Bible</h2><p class="section-description">Choose any of the 66 books and browse all its chapters.</p></div></div>
+      <div class="library-toolbar"><div><h3>Browse the collection</h3><p id="books-count">66 books shown</p></div><label class="book-filter"><input id="book-filter" type="search" placeholder="Find a book…" aria-label="Filter Bible books"><span aria-hidden="true">⌕</span></label></div>
+      <div class="testament-tabs" role="group" aria-label="Filter books by testament"><button type="button" data-testament="all" class="active">All Books <span>66</span></button><button type="button" data-testament="old">Old Testament</button><button type="button" data-testament="new">New Testament</button></div>
+      <div class="book-grid" id="book-grid"></div>
+    </section>
+
+    <section class="content-section reader-section" id="reader" hidden>
+      <div class="section-heading reader-heading"><div><span class="eyebrow">YOUR READING SPACE</span><h2 id="reader-title">John 3</h2><p class="section-description" id="reader-translation">King James Version</p></div><span class="reader-book-tag" id="reader-testament"></span></div>
+      <section class="chapter-picker" aria-label="Choose Bible chapter"><div class="chapter-picker-header"><h3 id="chapters-heading">Chapters</h3><p>Choose any chapter below. The numbers are chapters, not verses.</p></div><div id="chapter-grid" class="chapter-grid"></div></section>
+      <div id="reader-error" class="error-message" role="alert" hidden></div>
+      <h3 class="verses-heading" id="verses-heading">Verses</h3>
+      <div id="verse-list" class="verse-list"></div>
+      <nav class="chapter-navigation" aria-label="Chapter navigation"><button class="secondary-button" type="button" id="previous-chapter">← Previous</button><span id="chapter-status" class="chapter-navigation-status"></span><button class="secondary-button" type="button" id="next-chapter">Next →</button></nav>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#top"><span class="brand-mark">†</span> Sacred Pages</a><p>A quiet, thoughtful space to read, search, and explore Scripture.</p><span>Scripture supplied by the public GetBible API. An internet connection is required. Bible translations have their own licensing terms.</span></footer>
+
+  <div class="modal-overlay" id="signin-modal" hidden>
+    <section class="login-panel" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <button type="button" class="modal-close" id="close-modal" aria-label="Close">×</button>
+      <span class="brand-mark login-mark">†</span>
+      <span class="eyebrow">WELCOME TO SACRED PAGES</span>
+      <h2 id="login-title">Read without limits.</h2>
+      <p>Sign in with your Google account to unlock Tagalog and other available Bible languages. You can always continue without signing in and read in English.</p>
+      <div id="google-button" class="google-button"></div>
+      <div id="google-config-help" class="config-help" hidden><strong>Google sign-in setup needed.</strong><span>Add your Firebase web app config to <code>config.js</code>, then run on an authorized localhost or HTTPS domain. See <code>README.md</code>.</span></div>
+      <button type="button" id="continue-guest" class="guest-continue">Continue in English →</button>
+      <p class="modal-footnote">We do not request access to your Gmail, Drive, or other Google data.</p>
+    </section>
+  </div>
+  <script src="config.js"></script>
+  <script src="books.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
